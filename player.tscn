@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://c3ihy6emtca8f"]
+
+[ext_resource type="Script" uid="uid://lgugt6r7nlrj" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://d3jwm15et3t22" path="res://Assets Super Mario Bros/Sprites/Mario_Small_Idle.png" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://bausni6inywyv" path="res://Assets Super Mario Bros/Sprites/Mario_Small_Death.png" id="3_b26j0"]
+[ext_resource type="Texture2D" uid="uid://bqfjqbv1vr2oq" path="res://Assets Super Mario Bros/Sprites/Mario_Small_Jump.png" id="4_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://b7pkrn5h1n5lm" path="res://Assets Super Mario Bros/Sprites/Mario_Small_Run1.png" id="5_nvl01"]
+[ext_resource type="Texture2D" uid="uid://dlhg7nbxeials" path="res://Assets Super Mario Bros/Sprites/Mario_Small_Run2.png" id="6_ivps1"]
+[ext_resource type="Texture2D" uid="uid://d01eopk6c4cx1" path="res://Assets Super Mario Bros/Sprites/Mario_Small_Run3.png" id="7_urp6f"]
+[ext_resource type="Texture2D" uid="uid://cal7r48xqmfrt" path="res://Assets Super Mario Bros/Sprites/Mario_Small_Slide.png" id="8_bwjto"]
+[ext_resource type="Script" uid="uid://gwuo84ox8fl1" path="res://Cenas/animacao.gd" id="9_606se"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uhinr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i3pqv")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_b26j0")
+}],
+"loop": 1,
+"name": &"small_death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_n7ghd")
+}],
+"loop": 1,
+"name": &"small_jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_nvl01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ivps1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_urp6f")
+}],
+"loop": 1,
+"name": &"small_run",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_bwjto")
+}],
+"loop": 1,
+"name": &"small_slide",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mqxyl"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1228221084]
+collision_mask = 6
+script = ExtResource("1_onrkg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1103649730]
+sprite_frames = SubResource("SpriteFrames_uhinr")
+animation = &"small_run"
+script = ExtResource("9_606se")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=573712071]
+shape = SubResource("RectangleShape2D_mqxyl")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1327958033]
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=90440061]
+shape = SubResource("RectangleShape2D_mqxyl")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

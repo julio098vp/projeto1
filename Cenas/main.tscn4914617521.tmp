@@ -1,0 +1,68 @@
+[gd_scene format=4 uid="uid://c1vke4sfjw013"]
+
+[ext_resource type="Texture2D" uid="uid://dtkrgfs1x5qrr" path="res://Assets Super Mario Bros/Sprites/UndergroundBrick.png" id="1_ruij7"]
+[ext_resource type="Texture2D" uid="uid://dbhkvad8kmca" path="res://Assets Super Mario Bros/Sprites/UndergroundBlock.png" id="2_lb8y5"]
+[ext_resource type="Texture2D" uid="uid://8as4lix1a8pr" path="res://Assets Super Mario Bros/Sprites/HardBlock.png" id="3_ja1os"]
+[ext_resource type="Texture2D" uid="uid://cynte3knrg7rl" path="res://Assets Super Mario Bros/Sprites/ShootingFlower.png" id="4_lb8y5"]
+[ext_resource type="PackedScene" uid="uid://8v5xd2ayu8wq" path="res://Cenas/player.tscn" id="5_ja1os"]
+[ext_resource type="Texture2D" uid="uid://cq6tqakba8cj0" path="res://Assets Super Mario Bros/Sprites/Cloud1.png" id="5_qns0q"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qns0q"]
+texture = ExtResource("1_ruij7")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n00j1"]
+texture = ExtResource("2_lb8y5")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x6di6"]
+texture = ExtResource("3_ja1os")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_btbr3"]
+load_path = "res://.godot/imported/GroundBlock.png-280dceda38d32b1cb85c6b8c6442e74e.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jjrtw"]
+texture = SubResource("CompressedTexture2D_btbr3")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ja1os"]
+texture = ExtResource("4_lb8y5")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btbr3"]
+texture = ExtResource("5_qns0q")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_8y7kw"]
+physics_layer_0/collision_layer = 2
+sources/0 = SubResource("TileSetAtlasSource_qns0q")
+sources/1 = SubResource("TileSetAtlasSource_n00j1")
+sources/2 = SubResource("TileSetAtlasSource_x6di6")
+sources/3 = SubResource("TileSetAtlasSource_jjrtw")
+sources/4 = SubResource("TileSetAtlasSource_ja1os")
+sources/5 = SubResource("TileSetAtlasSource_btbr3")
+
+[node name="Main" type="Node" unique_id=1974823779]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1020238440]
+zoom = Vector2(2.75, 2.75)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=989706455]
+tile_map_data = PackedByteArray("AADz/wYAAwAAAAAAAAD0/wYAAwAAAAAAAAD1/wYAAwAAAAAAAAD2/wYAAwAAAAAAAAD3/wYAAwAAAAAAAAD4/wYAAwAAAAAAAAD5/wYAAwAAAAAAAAD6/wYAAwAAAAAAAAD7/wYAAwAAAAAAAAD8/wYAAwAAAAAAAAD9/wYAAwAAAAAAAAD+/wYAAwAAAAAAAAD//wYAAwAAAAAAAAAAAAYAAwAAAAAAAAABAAYAAwAAAAAAAAADAAYAAwAAAAAAAAAEAAYAAwAAAAAAAAAFAAYAAwAAAAAAAAAGAAYAAwAAAAAAAAAHAAYAAwAAAAAAAAAIAAYAAwAAAAAAAAAJAAYAAwAAAAAAAAAKAAYAAwAAAAAAAAALAAYAAwAAAAAAAAAMAAYAAwAAAAAAAAAMAAUAAwAAAAAAAAAMAAQAAwAAAAAAAAALAAQAAwAAAAAAAAAKAAQAAwAAAAAAAAAJAAQAAwAAAAAAAAAIAAQAAwAAAAAAAAAHAAQAAwAAAAAAAAAGAAQAAwAAAAAAAAAFAAQAAwAAAAAAAAAEAAQAAwAAAAAAAAADAAQAAwAAAAAAAAACAAQAAwAAAAAAAAABAAQAAwAAAAAAAAAAAAQAAwAAAAAAAAD//wQAAwAAAAAAAAD+/wQAAwAAAAAAAAD9/wQAAwAAAAAAAAD8/wQAAwAAAAAAAAD7/wQAAwAAAAAAAAD6/wQAAwAAAAAAAAD5/wQAAwAAAAAAAAD4/wQAAwAAAAAAAAD3/wQAAwAAAAAAAAD2/wQAAwAAAAAAAAD1/wQAAwAAAAAAAAD0/wQAAwAAAAAAAADz/wQAAwAAAAAAAAD0/wUAAwAAAAAAAAD1/wUAAwAAAAAAAAD2/wUAAwAAAAAAAAD3/wUAAwAAAAAAAAD4/wUAAwAAAAAAAAD5/wUAAwAAAAAAAAD6/wUAAwAAAAAAAAD7/wUAAwAAAAAAAAD8/wUAAwAAAAAAAAD9/wUAAwAAAAAAAAD+/wUAAwAAAAAAAAD//wUAAwAAAAAAAAAAAAUAAwAAAAAAAAABAAUAAwAAAAAAAAACAAUAAwAAAAAAAAADAAUAAwAAAAAAAAAEAAUAAwAAAAAAAAAFAAUAAwAAAAAAAAAGAAUAAwAAAAAAAAAHAAUAAwAAAAAAAAAIAAUAAwAAAAAAAAAJAAUAAwAAAAAAAAAKAAUAAwAAAAAAAAALAAUAAwAAAAAAAADz/wUAAwAAAAAAAADy/wQAAwAAAAAAAADy/wUAAwAAAAAAAADy/wYAAwAAAAAAAAANAAQAAwAAAAAAAAANAAUAAwAAAAAAAAANAAYAAwAAAAAAAAAOAAQAAwAAAAAAAAAPAAQAAwAAAAAAAAAQAAQAAwAAAAAAAAARAAQAAwAAAAAAAAASAAQAAwAAAAAAAAATAAQAAwAAAAAAAAAUAAQAAwAAAAAAAAAVAAQAAwAAAAAAAAAWAAQAAwAAAAAAAAAXAAQAAwAAAAAAAAAYAAQAAwAAAAAAAAAZAAQAAwAAAAAAAAAaAAQAAwAAAAAAAAAbAAQAAwAAAAAAAAAbAAUAAwAAAAAAAAAbAAYAAwAAAAAAAAAaAAYAAwAAAAAAAAAaAAUAAwAAAAAAAAAZAAUAAwAAAAAAAAAYAAUAAwAAAAAAAAAXAAUAAwAAAAAAAAAWAAUAAwAAAAAAAAAVAAUAAwAAAAAAAAAUAAUAAwAAAAAAAAATAAUAAwAAAAAAAAASAAUAAwAAAAAAAAARAAUAAwAAAAAAAAAQAAUAAwAAAAAAAAAPAAUAAwAAAAAAAAAOAAUAAwAAAAAAAAAOAAYAAwAAAAAAAAAPAAYAAwAAAAAAAAAQAAYAAwAAAAAAAAARAAYAAwAAAAAAAAASAAYAAwAAAAAAAAATAAYAAwAAAAAAAAAUAAYAAwAAAAAAAAAVAAYAAwAAAAAAAAAWAAYAAwAAAAAAAAAXAAYAAwAAAAAAAAAYAAYAAwAAAAAAAAAZAAYAAwAAAAAAAAAcAAQAAwAAAAAAAAAdAAQAAwAAAAAAAAAeAAQAAwAAAAAAAAAfAAQAAwAAAAAAAAAgAAQAAwAAAAAAAAAhAAQAAwAAAAAAAAAiAAQAAwAAAAAAAAAjAAQAAwAAAAAAAAAkAAQAAwAAAAAAAAAlAAQAAwAAAAAAAAAmAAQAAwAAAAAAAAAnAAQAAwAAAAAAAAAnAAUAAwAAAAAAAAAnAAYAAwAAAAAAAAAmAAYAAwAAAAAAAAAlAAYAAwAAAAAAAAAkAAYAAwAAAAAAAAAjAAYAAwAAAAAAAAAiAAYAAwAAAAAAAAAhAAYAAwAAAAAAAAAgAAYAAwAAAAAAAAAfAAYAAwAAAAAAAAAeAAYAAwAAAAAAAAAdAAYAAwAAAAAAAAAcAAYAAwAAAAAAAAAcAAUAAwAAAAAAAAAdAAUAAwAAAAAAAAAeAAUAAwAAAAAAAAAfAAUAAwAAAAAAAAAgAAUAAwAAAAAAAAAhAAUAAwAAAAAAAAAiAAUAAwAAAAAAAAAjAAUAAwAAAAAAAAAkAAUAAwAAAAAAAAAlAAUAAwAAAAAAAAAmAAUAAwAAAAAAAAACAAYAAwAAAAAAAAADAP//BQAAAAAAAAAEAP//BQABAAAAAAADAAAABQAAAAEAAAAEAAAABQABAAEAAAD5//7/BQAAAAAAAAD6//7/BQABAAAAAAD5////BQAAAAEAAAD6////BQABAAEAAAAJAPz/BQAAAAAAAAAJAP3/BQAAAAEAAAAKAPz/BQABAAAAAAAKAP3/BQABAAEAAAA=")
+tile_set = SubResource("TileSet_8y7kw")
+
+[node name="Player" parent="." unique_id=837162032 instance=ExtResource("5_ja1os")]
+position = Vector2(-52, 56)
